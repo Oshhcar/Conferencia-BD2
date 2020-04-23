@@ -1,0 +1,23 @@
+Crear archivo de paquetes 
+    package.json
+Generar package . lock
+    docker run --workdir /home/node -v  "/home/memitoo_1694/Conferencia/app:/home/node"  node:carbon npm install
+Crear codigo
+    index.js
+Crear Dockerfile
+Crear Dockerignore
+
+Crear carpeta bd
+
+Crear script inicial
+
+docker cp ./db/init.cql f54933cd25eb:/home
+
+
+cqlsh
+
+
+construir imagen
+
+correr todo
+docker-compose up -d --build
