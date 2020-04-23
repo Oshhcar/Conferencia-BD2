@@ -2,8 +2,6 @@ version: "2"
 services:
   web_server:
     build: "./app"
-    volumes:
-      - "./db:/home"
     depends_on:
         - cassandra
     environment:
@@ -19,6 +17,8 @@ services:
     image: cassandra
     ports:
       - "9042:9042"
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"
     networks:
       - service
     restart: always

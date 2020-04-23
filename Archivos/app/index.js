@@ -18,11 +18,15 @@ const app = express();
 
 app.get('/', (req, res) => {
         const query = 'SELECT * from fruit_stock WHERE item_id = ?';
-        client.execute(query, [ 'c3' ])
-          .then(result => console.log('Fruta %s', result.rows[0].name));
-          
-    res.send('Hello World');
+       return client.execute(query, [ req.query.fruit_id ])
+          .then(result => {
+           return ('Fruta %s', result.rows[0].name)
+          }
+          );
 });
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
+/*
+curl 127.0.0.1:8000?fruit_id=d4
+*/
